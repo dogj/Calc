@@ -16,6 +16,7 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
     String temp;
     Spinner spinner;
     boolean first = true;
+    Intent intent;
 
 
     @Override
@@ -24,6 +25,8 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_basic);
         textView= (TextView) findViewById(R.id.calcframe);
         spinner = (Spinner) findViewById(R.id.spinner);
+        Button basic = (Button) findViewById(R.id.basic);
+        basic.setBackgroundResource(R.drawable.button_shape2);
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -75,8 +78,15 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId())
         {
             case R.id.advanced:
-                Intent intent = new Intent(Basic.this,Advanced.class);
+                intent = new Intent(Basic.this,Advanced.class);
                 startActivity(intent);
+                break;
+            case R.id.help:
+                intent = new Intent(Basic.this,Help.class);
+                startActivity(intent);
+                break;
+            case R.id.system:
+                spinner.performClick();
                 break;
             case R.id.b1:
                 temp = textView.getText()+button.getText().toString();
@@ -142,9 +152,7 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
                 temp = textView.getText()+button.getText().toString();
                 textView.setText(temp);
                 break;
-            case R.id.system:
-                spinner.performClick();
-                break;
+
             default:
                 break;
         }

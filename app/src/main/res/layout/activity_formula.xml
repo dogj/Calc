@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jiangxin.calc.Formula">
+
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+
+
+        android:clipToPadding="false"
+        android:gravity="center"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:layout_marginBottom="15dp"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="22dp">
+
+
+        <Button
+            android:id="@+id/system"
+            android:layout_width="86sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:onClick="onClick"
+            android:text="Back"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/basic"
+            android:layout_width="86sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/button_shape"
+            android:onClick="onClick"
+            android:text="Home"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="86sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/button_shape"
+            android:onClick="onClick"
+            android:text="search"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:scrollbars="vertical"
+        android:layout_marginTop="19dp"
+        android:id="@+id/scroll"
+        app:layout_constraintTop_toBottomOf="@+id/menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:fadingEdge="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:orientation="vertical"
+        android:background="@drawable/textview_border">
+
+
+
+        <TextView
+            android:id="@+id/f1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="findmaximun" />
+        <TextView
+            android:id="@+id/f1d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:text="choose share delete edit" />
+        <TextView
+            android:id="@+id/f1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="findmaximun" />
+        <TextView
+            android:id="@+id/f1d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:text="choose share delete edit" />
+        <TextView
+            android:id="@+id/f1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="findmaximun" />
+        <TextView
+            android:id="@+id/f1d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:text="choose share delete edit" />
+        <TextView
+            android:id="@+id/f1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="findmaximun" />
+        <TextView
+            android:id="@+id/f1d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:text="choose share delete edit" />
+
+
+
+    </LinearLayout>
+
+    </ScrollView>
+    <View
+        app:layout_constraintTop_toBottomOf="@+id/scroll"
+
+        android:layout_width="320dp"
+        android:layout_height="2dip"
+        android:id="@+id/line"
+        android:background="#FF909090"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_border"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        android:layout_marginTop="8dp"
+        android:text="description:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/input"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_border"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        android:layout_marginTop="8dp"
+        android:text="input suggestion:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>
