@@ -25,6 +25,10 @@ public class Help extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         Button button = (Button) v;
         switch (v.getId()) {
+            case R.id.advanced:
+                intent = new Intent(Help.this,Advanced.class);
+                startActivity(intent);
+                break;
             case R.id.formula:
                 intent = new Intent(Help.this, Formula.class);
                 startActivity(intent);

@@ -24,6 +24,7 @@ public class Advanced extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced);
+        textView= (TextView) findViewById(R.id.calcframe);
         Button advanced = (Button) findViewById(R.id.advanced);
         advanced.setBackgroundResource(R.drawable.button_shape2);
         spinner = (Spinner) findViewById(R.id.spinner);
@@ -34,6 +35,10 @@ public class Advanced extends AppCompatActivity implements View.OnClickListener{
         Button button = (Button) v;
         switch (v.getId())
         {
+            case R.id.history:
+                intent = new Intent(Advanced.this,History.class);
+                startActivity(intent);
+                break;
             case R.id.formula:
                 intent = new Intent(Advanced.this,Formula.class);
                 startActivity(intent);
