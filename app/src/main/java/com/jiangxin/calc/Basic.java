@@ -1,6 +1,7 @@
 package com.jiangxin.calc;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,17 +44,24 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
 //                    first = false;
 //                } else {
                 try {
-                    //以下三行代码是解决问题所在
+                    //make spinner don't run by default
                     Field field = AdapterView.class.getDeclaredField("mOldSelectedPosition");
-                    field.setAccessible(true);  //设置mOldSelectedPosition可访问
-                    field.setInt(spinner, AdapterView.INVALID_POSITION); //设置mOldSelectedPosition的值
+                    field.setAccessible(true);  //set mOldSelectedPosition accessable
+                    field.setInt(spinner, AdapterView.INVALID_POSITION); //set value of mOldSelectedPosition
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 switch (position) {
                         case 0:
-                            startActivity(new Intent(Basic.this,LoginActivity.class));
-                            break;
+                            SharedPreferences sharedata = getSharedPreferences("data", 0);
+                            String data = sharedata.getString("username",null);
+                            if(data!= null){
+                                startActivity(new Intent(Basic.this,Account.class));
+                                break;
+                            }else {
+                                startActivity(new Intent(Basic.this, Login2.class));
+                                break;
+                            }
                         case 1:
                             Toast.makeText(Basic.this, "not implemented", Toast.LENGTH_SHORT).show();
                             break;
@@ -199,7 +207,7 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
                     arrayList.remove(2);
                     arrayList.remove(2);
                     arrayList.remove(2);
-                    arrayList.add(2, Integer.toString(calc));
+                    arrayList.add(2, String.valueOf(calc));
                     c = arrayList.size();
                 } else {
                     if (arrayList.get(1).contains("*")) {
@@ -216,7 +224,7 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
                     }
                     arrayList.remove(0);
                     arrayList.remove(0);
-                    arrayList.add(1, Integer.toString(calc));
+                    arrayList.add(1, String.valueOf(calc));
                     arrayList.remove(0);
                     c = arrayList.size();
                 }
@@ -235,12 +243,12 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
                 }
                 arrayList.remove(0);
                 arrayList.remove(0);
-                arrayList.add(1, Integer.toString(calc));
+                arrayList.add(1, String.valueOf(calc));
                 arrayList.remove(0);
                 c = arrayList.size();
             }
         }
-        textView.setText(Integer.toString(calc));
+        textView.setText(String.valueOf(calc));
         arrayList.clear();
     }
 }
