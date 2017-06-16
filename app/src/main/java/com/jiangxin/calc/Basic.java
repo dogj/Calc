@@ -59,7 +59,7 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
                                 startActivity(new Intent(Basic.this,Account.class));
                                 break;
                             }else {
-                                startActivity(new Intent(Basic.this, Login2.class));
+                                startActivity(new Intent(Basic.this, Login.class));
                                 break;
                             }
                         case 1:
@@ -108,6 +108,17 @@ public class Basic extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.b1:
                 temp = textView.getText()+button.getText().toString();
+                textView.setText(temp);
+                break;
+            case R.id.back:
+                temp = textView.getText().toString();
+                if(temp.length()>=1) {
+                    temp = temp.substring(0, temp.length() - 1);
+                }
+                textView.setText(temp);
+                break;
+            case R.id.C:
+                temp = "";
                 textView.setText(temp);
                 break;
             case R.id.b2:

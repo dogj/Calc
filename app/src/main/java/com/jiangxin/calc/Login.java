@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,7 +23,7 @@ import org.apache.http.util.EntityUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Login2 extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText username;
     EditText password;
@@ -38,7 +37,7 @@ public class Login2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login2);
+        setContentView(R.layout.activity_login);
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.psw);
         sign_in = (Button) findViewById(R.id.sign_in);
@@ -49,7 +48,7 @@ public class Login2 extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login2.this,Register.class));
+                startActivity(new Intent(Login.this,Register.class));
             }
         });
 
@@ -58,14 +57,14 @@ public class Login2 extends AppCompatActivity {
             public void onClick(View v) {
                 username_string = username.getText().toString();
                 password_string = password.getText().toString();
-                new login().execute();
+                new LoginDatabase().execute();
 
             }
         });
 
     }
 
-    class login extends AsyncTask<String,Void,Long> {
+    class LoginDatabase extends AsyncTask<String,Void,Long> {
 
 
         @Override
@@ -89,8 +88,11 @@ public class Login2 extends AppCompatActivity {
                     }
                 });
 
+                Thread.sleep(2000);
+
+
                 if(info.contains("success")){
-                    startActivity(new Intent(Login2.this,Basic.class));
+                    startActivity(new Intent(Login.this,Basic.class));
                     SharedPreferences.Editor sharedata = getSharedPreferences("data", 0).edit();
                     sharedata.putString("username",username_string);
                     sharedata.commit();

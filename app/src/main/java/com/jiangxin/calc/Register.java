@@ -1,5 +1,7 @@
 package com.jiangxin.calc;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -49,6 +51,13 @@ public class Register extends AppCompatActivity {
         sign_in = (Button) findViewById(R.id.sign_in);
         register = (Button) findViewById(R.id.register);
         tip = (TextView) findViewById(R.id.tip);
+        sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Register.this.finish();
+            }
+        });
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +80,7 @@ public class Register extends AppCompatActivity {
                     password.setError("the password should be longer than 4");
                 }
                 if (psw_success&name_success){
-                    new Send().execute();
+                    new NewUser().execute();
                 }
             }
         });
@@ -79,7 +88,7 @@ public class Register extends AppCompatActivity {
     }
 
 
-    class Send extends AsyncTask<String,Void,Long> {
+    class NewUser extends AsyncTask<String,Void,Long> {
 
 
         @Override
@@ -104,7 +113,9 @@ public class Register extends AppCompatActivity {
                 runOnUiThread(new Runnable(){
                     @Override
                     public void run(){
-                            tip.setText(info);
+
+
+                        tip.setText(info);
                     }
                 });
 
@@ -112,6 +123,14 @@ public class Register extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            startActivity(new Intent(Register.this,Basic.class));
+
             return null;
         }
     }

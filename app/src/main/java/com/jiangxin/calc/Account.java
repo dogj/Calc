@@ -70,7 +70,7 @@ public class Account extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sharedata.edit().clear().commit();
-                startActivity(new Intent(Account.this,Login2.class));
+                startActivity(new Intent(Account.this,Login.class));
             }
         });
 

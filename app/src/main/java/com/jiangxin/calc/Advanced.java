@@ -54,6 +54,17 @@ public class Advanced extends AppCompatActivity implements View.OnClickListener{
             case R.id.system:
                 spinner.performClick();
                 break;
+            case R.id.back:
+                temp = textView.getText().toString();
+                if(temp.length()>=1) {
+                    temp = temp.substring(0, temp.length() - 1);
+                }
+                textView.setText(temp);
+                break;
+            case R.id.C:
+                temp = "";
+                textView.setText(temp);
+                break;
             case R.id.b1:
                 temp = textView.getText()+button.getText().toString();
                 textView.setText(temp);

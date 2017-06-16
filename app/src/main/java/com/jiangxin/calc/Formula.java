@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class Formula extends AppCompatActivity implements View.OnClickListener {
@@ -26,7 +25,7 @@ public class Formula extends AppCompatActivity implements View.OnClickListener {
         textview1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(Formula.this, Formuladetail.class);
+                intent = new Intent(Formula.this, FormulaDetail.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +54,7 @@ public class Formula extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.formula1d:
-                intent = new Intent(Formula.this, Formuladetail.class);
+                intent = new Intent(Formula.this, FormulaDetail.class);
                 startActivity(intent);
                 break;
             default:
